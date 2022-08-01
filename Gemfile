@@ -54,3 +54,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "hotwire-rails", "~> 0.1.3"
+
+gem "faye-websocket", "~> 0.11.1"
+
+gem "eventmachine", "~> 1.2"
+
+gem "bulma-rails", "~> 0.9.3"
+
+gem "sidekiq", "~> 6.5"
