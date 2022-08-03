@@ -62,3 +62,5 @@ gem "eventmachine", "~> 1.2"
 gem "bulma-rails", "~> 0.9.3"
 
 gem "sidekiq", "~> 6.5"
+
+gem "sidekiq-cron", "~> 1.7"

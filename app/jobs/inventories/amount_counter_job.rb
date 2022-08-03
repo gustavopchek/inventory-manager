@@ -3,6 +3,7 @@ class Inventories::AmountCounterJob
 
   def perform(*args)
     inventories = Inventory.where("amount < ?", 10)
+    pp "performing amount counter job"
 
     Turbo::StreamsChannel.broadcast_prepend_to(
       "inventory",

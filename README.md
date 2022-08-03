@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Instructions
+- Make sure websocket is running (bin/websocketd --port=8080 ruby inventory.rb) on shoe-store repo
+- On a separate terminal, run `rake ws_listener` to connect to websocket and receive events
+- On another terminal window, run `bundle exec sidekiq -C config/sidekiq.rb` to start Sidekiq
+- Run `rails s` to start Rails server
+- Open *http://localhost:3000/dashboard* to open the inventory dashboard
 
-Things you may want to cover:
+The dashboard page should look similar to this
+![alt text](dashboard.jpg)
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Cron Jobs
+- Some jobs are scheduled on *config/schedule.yml*. They execute some actions and send updates to dashboard.

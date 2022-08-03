@@ -1,0 +1,4 @@
+amount_counter_job:
+  cron: "* * * * *"
+  class: "::Inventories::AmountCounterJob"
+  queue: inventory
