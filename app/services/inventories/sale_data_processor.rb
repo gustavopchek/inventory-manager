@@ -37,6 +37,7 @@ class Inventories::SaleDataProcessor
     # as we are passing an "id", there will be no duplicates
     if inventory.amount <= 15
       broadcast_alert
+      Inventories::StockFinderJob.perform_async(inventory.product_id) if inventory.amount.zero?
     else
       Turbo::StreamsChannel.broadcast_remove_to("inventory", target: "alert_#{ActionView::RecordIdentifier.dom_id(inventory)}")
     end

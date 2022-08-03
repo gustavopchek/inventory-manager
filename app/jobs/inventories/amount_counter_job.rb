@@ -1,6 +1,8 @@
 class Inventories::AmountCounterJob
   include Sidekiq::Job
 
+  sidekiq_options queue: :inventory
+
   def perform(*args)
     inventories = Inventory.where("amount < ?", 10)
     pp "performing amount counter job"
