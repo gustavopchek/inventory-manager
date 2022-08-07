@@ -14,6 +14,8 @@ class Inventories::SaleDataProcessor
     inventory.save!
 
     broadcast_inventory_update
+  rescue ActiveRecord::RecordNotFound => e
+    pp e.message
   end
 
   private

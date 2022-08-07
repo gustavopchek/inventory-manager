@@ -9,15 +9,17 @@ class Inventories::StockFinderJob
 
     store_names = inventories.map {|iv| iv.store.name }.join(", ")
 
-    Turbo::StreamsChannel.broadcast_prepend_to(
-      "inventory",
-      target: "alerts",
-      partial: "dashboard/stock_finder",
-      locals: {
-        product_name: inventories.first.product.name,
-        store_names: store_names,
-        generated_at: Time.current.to_formatted_s(:short)
-      }
-    )
+    unless inventories.empty?
+      Turbo::StreamsChannel.broadcast_prepend_to(
+        "inventory",
+        target: "alerts",
+        partial: "dashboard/stock_finder",
+        locals: {
+          product_name: inventories.first.product.name,
+          store_names: store_names,
+          generated_at: Time.current.to_formatted_s(:short)
+        }
+      )
+    end
   end
 end
