@@ -7,7 +7,7 @@
 - Bulma framework for dashboard view
 - Hotwire/Turbo to update dashboard view
 - Eventmachine to listen to Websocket (in a rake task)
-- Sidekiq and Sidekiq Cron for background processing
+- Sidekiq and Sidekiq Cron for background processing (**Redis is required**)
 - RSpec, FactoryBot and Faker for testing
 
 
